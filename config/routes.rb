@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resource :cart, only: [:show]
 
   get 'finalize' => 'carts#finalize'
+  resources :charges
 
 end

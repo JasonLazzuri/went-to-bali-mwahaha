@@ -10,7 +10,6 @@ class CartsController < ApplicationController
   def finalize
     if current_user
       current_order.finalize(current_user)
-      session[:order_id] = nil
       redirect_to cart_path
     else
       flash[:alert] = "You need to sign up or sign in to complete your order."
