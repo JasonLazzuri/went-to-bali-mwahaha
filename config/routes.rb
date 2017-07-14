@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "products#index"
+  get '/users' => 'users#index'
 
   get '/sign_up' => 'users#new'
   post '/users' => 'users#create'
