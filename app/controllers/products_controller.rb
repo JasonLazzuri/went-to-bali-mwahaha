@@ -16,12 +16,32 @@ class ProductsController < ApplicationController
       format.html { render :show}
       format.js
     end
+  end
 
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    flash[:notice] = "product destroyed!"
+    redirect_to products_path
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to product_path, notice: 'Product successfully updated!'
+    else
+      render :edit
+    end
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
+      flash[:notice] = "Product Created!"
       redirect_to '/'
     else
       render :new

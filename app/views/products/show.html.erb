@@ -1,1 +1,2 @@
 <%= render 'product_display', :product=>@product %>
+<%= link_to 'Delete Product', product_path, :data => {:confirm => "You sure?", :method => "delete"}  %>
